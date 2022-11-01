@@ -1,0 +1,74 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "problem in dir-a/dir-c",
+			"detail": "Should create a problem marker for dir-a/dir-c/file.json",
+			"type": "shell",
+			"command": "echo 'at: file.json'",
+			"problemMatcher": {
+				"pattern": {
+					"kind": "file",
+					"regexp": "at: (.*)"
+				},
+				"applyTo": "allDocuments",
+				"fileLocation": [
+					"search",
+					{
+						"include": [
+							"${workspaceFolder}/dir-a"
+						],
+						"exclude": [
+							"${workspaceFolder}/dir-a/dir-b"
+						]
+					}
+				]
+			}
+		},
+		{
+			"label": "problem in dir-a/dir-b",
+			"detail": "Should create a problem marker for dir-a/dir-b/file.json",
+			"type": "shell",
+			"command": "echo 'at: file.json'",
+			"problemMatcher": {
+				"pattern": {
+					"kind": "file",
+					"regexp": "at: (.*)"
+				},
+				"applyTo": "allDocuments",
+				"fileLocation": [
+					"search",
+					{
+						"include": [
+							"${workspaceFolder}/dir-a"
+						],
+						"exclude": [
+							"${workspaceFolder}/dir-a/dir-c"
+						]
+					}
+				]
+			}
+		},
+		{
+			"label": "problem in depth",
+			"detail": "Should create a problem marker for dir-a/dir-z/dir-z/unique-name.json",
+			"type": "shell",
+			"command": "echo 'at: unique-name.json'",
+			"problemMatcher": {
+				"pattern": {
+					"kind": "file",
+					"regexp": "at: (.*)"
+				},
+				"applyTo": "allDocuments",
+				"fileLocation": [
+					"search",
+					{
+						"include": [
+							"${workspaceFolder}"
+						]
+					}
+				]
+			}
+		},
+	]
+}
