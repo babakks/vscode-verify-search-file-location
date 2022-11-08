@@ -50,10 +50,52 @@
 			}
 		},
 		{
-			"label": "problem in depth",
+			"label": "problem in depth (1)",
 			"detail": "Should create a problem marker for dir-a/dir-z/dir-z/unique-name.json",
 			"type": "shell",
 			"command": "echo 'at: unique-name.json'",
+			"problemMatcher": {
+				"pattern": {
+					"kind": "file",
+					"regexp": "at: (.*)"
+				},
+				"applyTo": "allDocuments",
+				"fileLocation": [
+					"search",
+					{
+						"include": [
+							"${workspaceFolder}"
+						]
+					}
+				]
+			}
+		},
+		{
+			"label": "problem in depth (2)",
+			"detail": "Should create a problem marker for dir-a/dir-z/dir-z/unique-name.json",
+			"type": "shell",
+			"command": "echo 'at: dir-z/unique-name.json'",
+			"problemMatcher": {
+				"pattern": {
+					"kind": "file",
+					"regexp": "at: (.*)"
+				},
+				"applyTo": "allDocuments",
+				"fileLocation": [
+					"search",
+					{
+						"include": [
+							"${workspaceFolder}"
+						]
+					}
+				]
+			}
+		},
+		{
+			"label": "problem in depth (3)",
+			"detail": "Should create a problem marker for dir-a/dir-z/dir-z/unique-name.json",
+			"type": "shell",
+			"command": "echo 'at: /dir-z/unique-name.json'",
 			"problemMatcher": {
 				"pattern": {
 					"kind": "file",
