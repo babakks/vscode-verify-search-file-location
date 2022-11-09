@@ -112,5 +112,19 @@
 				]
 			}
 		},
+		{
+			"label": "problem in depth (4)",
+			"detail": "Should create a problem marker for dir-a/dir-z/dir-z/unique-name.json",
+			"type": "shell",
+			"command": "echo 'at: unique-name.json'",
+			"problemMatcher": {
+				"pattern": {
+					"kind": "file",
+					"regexp": "at: (.*)"
+				},
+				"applyTo": "allDocuments",
+				"fileLocation": "search"
+			}
+		},
 	]
 }
